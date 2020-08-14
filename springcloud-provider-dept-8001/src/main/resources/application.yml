@@ -1,0 +1,25 @@
+server:
+  port: 8001
+
+#mybatis配置
+mybatis:
+  #type-aliases-package: com.joke.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#spring的配置
+spring:
+  application:
+    name: springcloud-provider-dept
+    #数据源的配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源为druid
+    driver-class-name: com.mysql.jdbc.Driver #数据库驱动
+    url: jdbc:mysql://localhost:3306/springcloudlearn?useUnicode=true&characterEncoding=utf-8&servetTimeZone=Asia/Shanghai
+    username: root
+    password: root
+  #热部署工具
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
