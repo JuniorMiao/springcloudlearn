@@ -1,0 +1,29 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    prefer-ip-address: true
+    # 修改Eureka中status的默认描述信息。
+    instance-id: zuul9527.com
+
+info: #链接点开后显示的info信息
+  app.name: joke => zuul test
+  company.name: joke => zuul.com
+  version.name: joke.01
+  other.name: helloworld
+
+zuul:
+  routes:
+    # 查询地址：http://www.joke.com:9527/mydept/dept/get/1
+    deptService:
+      serviceId: springcloud-provider-dept
+      path: /mydept/**
+  ignored-services: "*" # 星号（*）隐藏全部项目的真实名字
+  prefix:  /joke

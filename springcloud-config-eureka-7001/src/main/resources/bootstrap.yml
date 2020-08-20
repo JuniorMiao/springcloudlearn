@@ -1,0 +1,9 @@
+# 系统级别的配置
+spring:
+  cloud:
+    config:
+      name: config-eureka # 需要从git上读取的资源名称，不要后缀
+      profile: dev #dev环境端口：8201 test环境端口：8202
+      label: master #需要在git上的哪个分支拿
+       #连接到3344服务，中转站的形式连接服务端访问远程地址
+      uri: http://localhost:3344

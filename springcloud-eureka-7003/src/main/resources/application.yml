@@ -1,0 +1,25 @@
+server:
+    port: 7003
+# Eureka配置
+eureka:
+    instance:
+      hostname: eureka7003.com  #Eureka服务端的实例名称
+    client:
+      register-with-eureka: false #表示是否向Eureka注册中心注册自己
+      fetch-registry: false # 为false表示自己为注册中心
+      service-url: #监控页面
+        # 单机
+#        defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      # 集群（除自身外，关联其他所有）
+        defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+##热部署工具
+#spring:
+#  devtools:
+#    restart:
+#      enabled: true  #设置开启热部署
+#      additional-paths: src/main/java #重启目录
+
+
+
+

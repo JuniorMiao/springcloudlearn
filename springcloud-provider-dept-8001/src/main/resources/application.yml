@@ -23,3 +23,12 @@ spring:
     restart:
       enabled: true  #设置开启热部署
       additional-paths: src/main/java #重启目录
+
+# Eureka的配置，服務註冊到Eureka中，需要一个路径地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    # 修改Eureka中status的默认描述信息。
+    instance-id: springcloud-provider-dept8001
